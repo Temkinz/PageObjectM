@@ -13,7 +13,7 @@ def pytest_addoption(parser):
 def browser(request):
     print("\nstart browser for test..")
     language = request.config.getoption("language")
-    languages_list = ["de", "ar", "ca", "cs", "da", "en-gb", "el", "es", "fi", "fr", "it", "ko", "nl", "pl", "pt", "pt-br", "ro", "ru", "sk", "uk", "zh-hans"]
+    languages_list = ["de", "ar", "ca", "cs", "da","en", "en-gb", "el", "es", "fi", "fr", "it", "ko", "nl", "pl", "pt", "pt-br", "ro", "ru", "sk", "uk", "zh-hans"]
     if language is None:
         language == "en"
     elif language not in languages_list:
