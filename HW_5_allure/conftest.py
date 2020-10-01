@@ -1,4 +1,3 @@
-
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -6,7 +5,7 @@ from selenium.webdriver.chrome.options import Options
 
 def pytest_addoption(parser):
     parser.addoption('--language', action='store', default="en", help="Choose language")
-    parser.addoption('--browser_name', action='store', default=None,\
+    parser.addoption('--browser', action='store', default=None,\
                      help="Choose browser: chrome or firefox")
 
 
@@ -18,7 +17,7 @@ def browser(request):
     if language not in languages_list:
         raise pytest.UsageError("--language should be chosen from the existing list")
 
-    browser_name = request.config.getoption("browser_name")
+    browser_name = request.config.getoption("browser")
 
     options = Options()
     options.add_experimental_option('prefs', {'intl.accept_languages': language})

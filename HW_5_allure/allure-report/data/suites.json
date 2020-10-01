@@ -1,0 +1,26 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "HW_5_allure",
+    "children" : [ {
+      "name" : "test_make_report",
+      "children" : [ {
+        "name" : "test_user_can_be_registered",
+        "uid" : "ff52b440b7b7638b",
+        "parentUid" : "6e0a4016acdb3a688cbada502b02e1d2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1601575250594,
+          "stop" : 1601575258147,
+          "duration" : 7553
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "6e0a4016acdb3a688cbada502b02e1d2"
+    } ],
+    "uid" : "a53462a24f97bf94e37431351d2acf1e"
+  } ]
+}

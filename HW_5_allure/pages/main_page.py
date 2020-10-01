@@ -4,7 +4,8 @@ from selenium.webdriver.common.by import By
 
 class MainPage(BasePage):
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-    REGISTRATION_MESSAGE = (By.CSS_SELECTOR, "div.alert-success > div")
+    REGISTRATION_MESSAGE_ACTUAL = (By.CSS_SELECTOR, "div.alert-success > div")
+    REGISTRATION_MESSAGE_EXPECTED = "Thanks for registering!"
 
     def go_to_login_page(self):
         login_link = self.browser.find_element(*self.LOGIN_LINK)
@@ -15,6 +16,6 @@ class MainPage(BasePage):
         assert self.is_element_present(*self.LOGIN_LINK), "Login link is not presented"
 
     def check_registration_message(self):
-        registration_message = self.browser.find_element(*self.REGISTRATION_MESSAGE).text
-        assert "Thanks for registering!" in registration_message, "The user wasn't registered"
+        registration_message = self.browser.find_element(*self.REGISTRATION_MESSAGE_ACTUAL).text
+        assert self.REGISTRATION_MESSAGE_EXPECTED in registration_message, f"expected {self.REGISTRATION_MESSAGE_EXPECTED}, got {registration_message}"
 

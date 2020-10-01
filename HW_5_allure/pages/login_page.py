@@ -1,7 +1,6 @@
 from .base_page import BasePage
 from selenium.webdriver.common.by import By
-import random
-
+from .utils import Utils
 
 class LoginPage(BasePage):
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
@@ -11,14 +10,6 @@ class LoginPage(BasePage):
     INPUT_PASSWORD_REPEAT = (By.CSS_SELECTOR, "input#id_registration-password2")
     REGISTRATION_BUTTON = (By.CSS_SELECTOR, "button[name = 'registration_submit']")
 
-    password = "Test202020"
-
-    def emails(self):
-        email = ''
-        for x in range(12):
-            email = email + random.choice(list('1234567890qwertyuiopASDFGHJKLZXCVBMNMNM'))
-        email = email + '@gmail.com'
-        return email
 
     def register(self, email, password):
         input_email = self.browser.find_element(*self.INPUT_EMAIL)

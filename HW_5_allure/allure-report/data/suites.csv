@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Oct 01 21:00:50 MSK 2020","Thu Oct 01 21:00:58 MSK 2020","7553","HW_5_allure","test_make_report","","","","test_user_can_be_registered",""
