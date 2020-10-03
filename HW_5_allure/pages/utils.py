@@ -1,7 +1,9 @@
 import random
+from faker import Faker
 
 class Utils():
 
+    @staticmethod
     def passwords():
         password = ''
         for x in range(9):
@@ -9,3 +11,9 @@ class Utils():
         print(password)
         return password
 
+    @staticmethod
+    def email():
+        fake = Faker()
+        email = fake.email()
+        print(email)
+        return email
