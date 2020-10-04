@@ -11,7 +11,7 @@ def test_user_can_be_registered(browser):
     email = Utils.email()
     password = Utils.passwords()
     login_page.register(email, password)
-    login_page = MainPage(browser, link)
+    login_page = MainPage(browser, browser.current_url)
     login_page.check_registration_message()
 
 
