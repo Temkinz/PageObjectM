@@ -1,4 +1,5 @@
 import pytest
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
@@ -25,16 +26,20 @@ def browser(request):
     if browser_name == "chrome":
         print("\nstart chrome browser for test..")
         browser = webdriver.Chrome(options=options)
+        browser.maximize_window()
     elif browser_name == "firefox":
         print("\nstart firefox browser for test..")
         fp = webdriver.FirefoxProfile()
         fp.set_preference("intl.accept_languages", language)
         browser = webdriver.Firefox(firefox_profile=fp)
+        browser.maximize_window()
     else:
         raise pytest.UsageError("--browser_name should be chrome or firefox")
 
     browser.implicitly_wait(5)
     yield browser
+    now = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+    browser.save_screenshot('Screenshots/screenshot-%s.png' % now)
     print("\nquit browser..")
     browser.quit()
 
