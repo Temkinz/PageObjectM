@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By
 
 class BasePage():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    BASKET_BUTTON = (By.CSS_SELECTOR, "header span > a")
 
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
@@ -34,6 +35,9 @@ class BasePage():
         except TimeoutException:
             return True
         return False
+
+    def go_to_basket_page(self):
+        self.browser.find_element(*self.BASKET_BUTTON).click()
 
     def go_to_login_page(self):
         login_link = self.browser.find_element(*self.LOGIN_LINK)
